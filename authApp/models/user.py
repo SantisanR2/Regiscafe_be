@@ -23,8 +23,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     finca = models.ForeignKey(Finca, related_name='Finca', on_delete=models.CASCADE)
     is_recolector = models.BooleanField('Recolector', default=False)
     is_admin = models.BooleanField('Admin', default=False)
-    cedula = models.IntegerField('Cedula')
-    celular = models.IntegerField('Celular')
+    cedula = models.CharField('Cedula', max_length = 30)
+    celular = models.CharField('Celular', max_length = 30)
     fecha = models.DateTimeField('FechaNacimiento',auto_now=False) 
 
     def save(self, **kwargs):
